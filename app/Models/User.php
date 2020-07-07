@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
-use Laravel\Cashier\Billable;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -15,8 +14,7 @@ class User extends Authenticatable
     use Notifiable,
         HasApiTokens,
         HasRoles,
-        HasSlug,
-        Billable;
+        HasSlug;
 
     /**
      * The attributes that should be hidden for arrays.
@@ -51,10 +49,5 @@ class User extends Authenticatable
         return SlugOptions::create()
             ->generateSlugsFrom('username')
             ->saveSlugsTo('uri');
-    }
-
-    public function performances()
-    {
-        return $this->hasMany('App\Models\Performance');
     }
 }
