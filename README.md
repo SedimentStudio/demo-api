@@ -37,7 +37,7 @@ docker-compose up apache2 postgres
 
 To access the API's working directory in container (for running artisan commands, migrations, etc.)
 ```
-docker exec -it sedimentdemo_workspace_1 /bin/bash
+docker exec -it sediment_demo_workspace_1 /bin/bash
 ```
 
 To access the DB, download [PSequel](http://www.psequel.com/) or your favorite DB tool and log in with DB credentials in .env
